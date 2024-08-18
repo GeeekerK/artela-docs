@@ -1,47 +1,47 @@
 # FAQ
 
-## Q: What distinguishes Artela from the others?
+## Q：Artela 与其他公司有何不同？
 
-Artela has enabled the borderless extensibility of the blockchain network while achieving scalability. That is to say, Artela is not only capable of meeting the demands of large-scale applications in terms of performance. DApps with intricate complexity can also be customized in an agile, modular, and native manner in Artela.
-
----
-
-## Q: Why Artela?
-
-1. Artela enables developers to achieve app-chain scale customization by building aspects on par with the difficulty of compiling smart contracts while maintaining native-level composability.
-2. On Artela, developers can easily reuse and combine aspects, which in turn facilitates the construction of dApps with improved extensibility and maintainability through the use of modular design and the idea of SOC(Separate of Concerns).
-3. By leveraging the capabilities of aspects, services such as automation and on-chain risk management can be implemented on Artela with greater security, enhanced functionality, unprecedented precision for customization, and native composability.
+Artela 在实现可扩展性的同时，实现了区块链网络的无边界扩展性。也就是说，Artela 不仅在性能上能够满足大规模应用的需求，复杂程度极高的 DApp 也可以在 Artela 中以敏捷、模块化和原生的方式进行定制。
 
 ---
 
-## Q: How Aspect Programming benefits dApps?
+## Q：为什么选择 Artela？
 
-1. With Aspect, developers don‘t really need to rebuild an appchain from scratch to achieve customization for their dApps. They can freely and easily develop Aspect to seamlessly incorporate additional native functionalities, making the process as simple and secure as deploying smart contracts.
-2. Aspect can be deployed throughout the entire life cycle of transactions, with more context of transactions accessible than the smart contract. Also, the WASM virtual machine will serve as the execution environment for built-in Aspects. The combination of these two features enables developers to explore new possibilities for on-chain functionalities. Some previously unimaginable scenarios would become within reach, like on-chain runtime protection for smart contracts, on-chain automation (eg. Just in Time MEV for dApps) with an unprecedented level of customization, effective rollup proof verification, lightweight implementation of “EIP”, and much more. Developers can harness the power of their preferred programming languages within Aspect’s secure and flexible framework, unlocking their unlimited creative potential and driving continuous value creation for the ecosystem.
-3. Aspect would enable modular dApp building patterns for developers. DApps would no longer be a collection of tightly coupled codebases. Developers can obtain promising improvements in flexibility, resilience, scalability, extensibility, and maintenance simply by assembling Aspects.
-
----
-
-## Q: What’s the main difference between smart contracts and Aspects?
-
-Both smart contracts and aspects serve as programmable building units for developers to write code and develop dApps. They are different in the following ways:
-
-1. Artela advocates the dApp-building concept of SOC (Separate of Concerns), which entails utilizing smart contracts to implement business logic and aspects to achieve additional features like risk management, security, and automation, ultimately enabling modular construction and assembly of dApps.
-
-2. Smart contracts in Artela utilize EVM as the execution environment, while aspects run in WASM or other heterogeneous environments.
-
-3. Aspects can be implemented and worked at several major joint points of the consensus process.
+1. Artela 让开发者能够通过构建与编写智能合约难度相当的方面，同时保持原生级别的可组合性，实现应用链规模的定制。
+2. 在 Artela 上，开发者可以轻松重用和组合方面，从而通过使用模块化设计和 SOC（关注点分离）的思想，构建具有更高可扩展性和可维护性的 dApp。
+3. 利用 Aspect 的功能，可以在 Artela 上实现自动化和链上风险管理等服务，具有更高的安全性、增强的功能、前所未有的定制精度和原生可组合性。
 
 ---
 
-## Q: How to ensure the security of aspects?
+## Q：Aspect 编程如何使 dApp 受益？
 
- Built-in Aspects operate within a deterministic sandbox environment that leverages WASM technology, thereby guaranteeing the reliability of their execution. Due to their integration with the network validators, these aspects become an integral part of the consensus process and inherit the same level of security as the Artela main net.
-
-Heterogeneous aspects leverage shared-security solutions to seamlessly integrate complex off-chain computing solutions, such as artificial intelligence, with on-chain activities.
+1. 借助 Aspect，开发人员实际上不需要从头开始重建应用链来实现 dApp 的定制。他们可以自由轻松地开发 Aspect，无缝整合额外的原生功能，使该过程与部署智能合约一样简单和安全。
+2. Aspect 可以部署在交易的整个生命周期中，比智能合约可以访问更多的交易上下文。此外，WASM 虚拟机将作为内置 Aspect 的执行环境。这两个功能的结合使开发人员能够探索链上功能的新可能性。一些以前无法想象的场景将变得触手可及，例如智能合约的链上运行时保护、具有前所未有的定制级别的链上自动化（例如 dApp 的即时 MEV）、有效的汇总证明验证、“EIP”的轻量级实现等等。开发人员可以在 Aspect 安全灵活的框架中利用他们喜欢的编程语言的强大功能，释放他们无限的创造潜力，并为生态系统推动持续的价值创造。
+3. Aspect 将为开发人员提供模块化 dApp 构建模式。DApp 将不再是紧密耦合的代码库的集合。开发人员只需组装 Aspect，就可以在灵活性、弹性、可扩展性、可扩展性和维护方面获得有希望的改进。
 
 ---
 
-## Q: How does Artela maintain high performance and scalability?
+## Q：智能合约和 Aspect 的主要区别是什么？
 
-Artela utilizes parallel computing techniques to support vertical scaling, allowing for the efficient division and parallel execution of transaction groups within a block.
+智能合约和方面都是开发人员编写代码和开发 dApp 的可编程构建单元。它们的不同之处在于：
+
+1. Artela 提倡 SOC（Separate of Concerns）的 dApp 构建理念，即利用智能合约实现业务逻辑，利用方面实现风险管理、安全性和自动化等附加功能，最终实现 dApp 的模块化构建和组装。
+
+2. Artela 中的智能合约使用 EVM 作为执行环境，而方面则在 WASM 或其他异构环境中运行。
+
+3. 方面可以在共识过程的几个主要连接点上实现和工作。
+
+---
+
+## Q：如何确保方面的安全性？
+
+内置方面在利用 WASM 技术的确定性沙盒环境中运行，从而保证其执行的可靠性。由于它们与网络验证器的集成，这些方面成为共识过程不可或缺的一部分，并继承了与 Artela 主网相同的安全性级别。
+
+异构方面利用共享安全解决方案将复杂的链下计算解决方案（例如人工智能）与链上活动无缝集成。
+
+---
+
+## Q：Artela 如何保持高性能和可扩展性？
+
+Artela 利用并行计算技术支持垂直扩展，允许高效划分和并行执行区块内的交易组。

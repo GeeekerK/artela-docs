@@ -1,27 +1,27 @@
 # Lite dApp
 
-## Introduction
+## 简介
 
-> **Lite dApp is smart contracts built in the same way as before.**
+> **Lite dApp 是以与以前相同的方式构建的智能合约。**
 
-There is no difference between Lite dApp and dApps running on the EVM blockchain. Artela has an EVM execution layer for smart contracts. Building Lite dApps on Artela Network is the same way as building smart contracts dApps on Ethereum.
+Lite dApp 和在 EVM 区块链上运行的 dApp 之间没有区别。Artela 有一个用于智能合约的 EVM 执行层。在 Artela Network 上构建 Lite dApp 的方式与在以太坊上构建智能合约 dApp 的方式相同。
 
-Aspect, as a modular extension module, is optimal for dApp building. Developers can build smart contracts just as before without extensions. 
+Aspect 作为模块化扩展模块，是 dApp 构建的最佳选择。开发人员可以像以前一样构建智能合约，而无需扩展。
 
-The principle of Lite dApp:
+Lite dApp 的原理：
 
 ![seventy_p](./img/1.png)
 
 ---
 
-## Use Case
+## 用例
 
-1. Smart Contracts PaaS
-    
-    Artela Network integrates smart contract tools as built-in options to make smart contract development as easy as possible. Artela provides Platform as a Service (PaaS) to help developers build smart contracts.
+1. 智能合约 PaaS
+   
+    Artela Network 将智能合约工具集成为内置选项，使智能合约开发尽可能简单。Artela 提供平台即服务 (PaaS) 来帮助开发人员构建智能合约。
 
 ![ninety_p](./img/2.png)
 
-1. Smart Contracts with elastic block space need
-    
-    For DeFi smart contracts with a demand for high scalability, elastic block space can be leveraged to enable limitless scalability.
+1. 需要弹性区块空间的智能合约
+   
+    对于需要高可扩展性的 DeFi 智能合约，可以利用弹性区块空间来实现无限的可扩展性。

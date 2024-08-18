@@ -2,17 +2,17 @@
 sidebar_position: 1
 ---
 
-# EVM-Compatible APIs
+# EVM 兼容 API
 
-Artela JSON-RPC Server provides an API for connection to the Artela blockchain and interaction with the EVM. JSON-RPC is a stateless, lightweight protocol for remote procedure calls (RPC). It defines various data structures and the rules governing their processing. JSON-RPC is compatible with multiple transport protocols. Artela, in particular, supports JSON-RPC over HTTP and WebSocket.
+Artela JSON-RPC 服务器提供用于连接 Artela 区块链并与 EVM 交互的 API。JSON-RPC 是一种无状态的轻量级远程过程调用 (RPC) 协议。它定义了各种数据结构及其处理规则。JSON-RPC 与多种传输协议兼容。特别是 Artela，它支持通过 HTTP 和 WebSocket 的 JSON-RPC。
 
-Artela TestNet example:
+Artela TestNet 示例：
 
 ```
    curl https://betanet-rpc1.artela.network -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}'
 ```
 
-Artela has most of the Ethereum RPC methods implemented (while some are still working in progress), so you can use Ethereum infrastructures connect to Artela without any issue. The RPC methods below, marked with ticks, are the ones we have already implemented:
+Artela 已实现大多数以太坊 RPC 方法（但有些方法仍在开发中），因此您可以使用以太坊基础设施毫无问题地连接到 Artela。下面标有勾号的 RPC 方法就是我们已经实现的方法：
 
 | APIs                                    | Status |
 |-----------------------------------------|--------|

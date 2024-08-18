@@ -4,28 +4,27 @@ sidebar_position: 3
 
 # Artela Web3.js
 
-`@artela/web3` extend Ethereum's web3.js 1.9.x, supporting Aspect operations.
+`@artela/web3` 扩展了以太坊的 web3.js 1.9.x，支持 Aspect 操作。
 
-This package retains full compatibility with the
-original [web3.js](https://web3js.readthedocs.io/en/v1.9.0/getting-started.html), with minor adjustments.
+此包保留了与原始 [web3.js](https://web3js.readthedocs.io/en/v1.9.0/getting-started.html) 的完全兼容性，并进行了细微调整。
 
-## Installation
+## 安装
 
-To integrate this package into your JavaScript or TypeScript project, run the following command:
+要将此包集成到您的 JavaScript 或 TypeScript 项目中，请运行以下命令：
 
 ```bash
 npm install @artela/web3 --save
 ```
 
-## Quick start
+## 快速入门
 
-Import related lib on your node.js project. The Web3 class is an umbrella package to house all Ethereum related modules.
+在您的 node.js 项目上导入相关库。Web3 类是一个总括包，用于容纳所有以太坊相关模块。
 
 ```javascript
 import Web3 from '@artela/web3';
 ```
 
-New Instance
+新实例
 
 ```javascript
 var web3 = new Web3('http://127.0.0.1:8545');
@@ -109,31 +108,33 @@ console.log(bindReceipt);
 
 ## web3.atl.Aspect
 
-> The ``web3.atl.Aspect`` function lets you create a proxy Contract type for this instance, as a Contract's provider is
-> stored as a class member rather than an instance variable.
+> ``web3.atl.Aspect`` 函数允许您为此实例创建代理 Contract 类型，因为 Contract 的提供程序存储为类成员而不是实例变量。
 
 ```javascript
 import Web3 from '@artela/web3';
 
-// new a aspect instance from aspectId
-// Aspect: new (address?: string, options?: AspectOptions) => Aspect;
-let aspect = new Web3.atl.Aspect("0x5B38Da6a701c568545dCfcB03FcB875f56beddC4");
+// 从 aspectsId 新建一个方面实例
+// Aspect：new (address?: string, options?: AspectOptions) => Aspect;
+let aspects = new Web3.atl.Aspect("0x5B38Da6a701c568545dCfcB03FcB875f56beddC4");
 
 ```
 
-``Aspect`` - A Aspect instance.
+``Aspect`` - 一个 Aspect 实例。
 
-- ``aspect.address``: The address of aspect instance.
-- ``aspect.options``: The option of aspect instance, type is AspectOptions.
+- ``aspect.address``：方面实例的地址。
+- ``aspect.options``：方面实例的选项，类型为 AspectOptions。
 
-``AspectOptions`` - A AspectOptions instance.
+``AspectOptions`` - AspectOptions 实例。
 
-- ``aspectOption.from``: The sender to use for contract calls.
-- ``aspectOption.gasPrice``: The gas price to use for contract calls.
-- ``aspectOption.gas``: The gas to use for contract calls.
-- ``aspectOption.data``: The aspect WASM code.
+- ``aspectOption.from``：用于合约调用的发送方。
 
-With Aspect Instance you can do the following things：
+- ``aspectOption.gasPrice``：用于合约调用的 gas 价格。
+
+- ``aspectOption.gas``：用于合约调用的 gas。
+
+- ``aspectOption.data``：aspect WASM 代码。
+
+使用 Aspect 实例，您可以执行以下操作：
 
 * [Deploy a Aspect to blockchain](/develop/client/artela-web3.js#deploy)
 * [Upgrade a Aspect to blockchain](/develop/client/artela-web3.js#upgrade)
@@ -144,26 +145,25 @@ With Aspect Instance you can do the following things：
 * [Get Bound Aspect Address](/develop/client/artela-web3.js#aspectsof)
 * [Get Bound Account Addresses](/develop/client/artela-web3.js#boundaddressesof)
 
-### deploy
+### 部署
 
-> During the deployment of an Aspect, the Aspect binary is stored in the system contract, along with additional details
-> such as the version, properties, and other relevant information.
+> 在部署 Aspect 时，Aspect 二进制文件会存储在系统合约中，同时还会存储其他详细信息，例如版本、属性和其他相关信息。
 
-#### Parameters
+#### 参数
 
-- **DeployOperation**
-    - data: The aspect binary hex string, **require**.
-    - properties:  KVPair[], **optional**,
-      like: `[{ 'key': 'owner', 'value': accounts[0] },{ 'key': 'key1', 'value': 'value1' }]`
-    - joinPoints: Specify which join points take effect，fill in multiple choices in the
-      list ["VerifyTx","PreTxExecute","PreContractCall","PostContractCall","PostTxExecute"].
-      like `["PreContractCall","PostContractCall"]`
-    - paymaster: The pay master address. **optional**
-    - proof: Proof hex data. **optional**
+- **部署操作**
+    - data: 切面的二进制十六进制字符串，**必选**。
+    - properties: KVPair[]，**可选**，
+    如：`[{ 'key': 'owner', 'value': accounts[0] },{ 'key': 'key1', 'value': 'value1' }]`
+    - joinPoints: 指定哪些连接点生效，在列表["VerifyTx","PreTxExecute","PreContractCall","PostContractCall","PostTxExecute"]中可多选填写。
+    如`["PreContractCall","PostContractCall"]`
+    - paymaster: 支付主地址。**可选**
+    - proof: 证明十六进制数据。**可选**
 
-#### Example
+#### 例子
 
 <!-- @formatter:off -->
+
 ```jsx
 // new Aspect Instance
 let aspect = new web3.atl.Aspect();
@@ -189,22 +189,21 @@ return await web3.atl.sendSignedTransaction(signedTx.rawTransaction);
 ```
 <!-- @formatter:on -->
 
-### upgrade
+### 升级
 
-> Aspect Upgrade updates existing `binary data`, `joinPoints`, and `properties` based on the incoming AspectId. This
-> operation will overwrite the original values;
+> Aspect Upgrade 根据传入的 AspectId 更新现有的“二进制数据”、“连接点”和“属性”。此
+> 操作将覆盖原始值；
 
-#### Parameters
+#### 参数
 
-- **DeployOperation**
-    - data: The aspect binary hex string,will overwrite the original values. **require**.
-    - properties:  KVPair[], will overwrite the original values. **optional**,
-      like: `[{ 'key': 'owner', 'value': accounts[0] },{ 'key': 'key1', 'value': 'value1' }]`
-    - joinPoints: Specify which join points take effect，fill in multiple choices in the
-      list ["VerifyTx","PreTxExecute","PreContractCall","PostContractCall","PostTxExecute"].
-      like `["PreContractCall","PostContractCall"]`
+- **部署操作**
+    - data: 对应的二进制十六进制字符串，会覆盖原有值。**必须**。
+    - properties: KVPair[]，会覆盖原有值。**可选**，
+    如：`[{ 'key': 'owner', 'value': accounts[0] },{ 'key': 'key1', 'value': 'value1' }]`
+    - joinPoints: 指定哪些连接点生效，在列表 ["VerifyTx","PreTxExecute","PreContractCall","PostContractCall","PostTxExecute"] 中可多选填写。
+    如 `["PreContractCall","PostContractCall"]`
 
-#### Example
+#### 例子
 
 <!-- @formatter:off -->
 ```jsx
@@ -230,27 +229,24 @@ return await web3.atl.sendSignedTransaction(signedTx.rawTransaction);
 ```
 <!-- @formatter:on -->
 
-
 :::note
-The upgraded Aspect will be activated in the next block and its version will be increased by 1.
+升级后的 Aspect 将在下一个区块中激活，其版本将增加 1。
 :::
 
-### bind
+### 绑定
 
-> Aspect binding to a contract is a process that establishes a connection between an Aspect and a smart contract in an
-> Artela network. The relationship is maintained within the system contract.
-> The function lets you binds a contract with an aspect: transactionHash, receipt.
+> Aspect 绑定到合约是在 Artela 网络中建立 Aspect 与智能合约之间连接的过程。该关系在系统合约中维护。
+> 该函数允许您将合约与某个方面绑定：transactionHash、收据。
 
-#### Parameters
+#### 参数
 
 - **BindAspectOptions**
-    - priority: The aspect binary hex string,will overwrite the original values. **optional**.
-    - aspectId:  Aspect Address. **require**, like: `0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`
-    - aspectVersion: Specify which join points take effect，fill in multiple choices in the
-      list ["VerifyTx","PreTxExecute","PreContractCall","PostContractCall","PostTxExecute"].
-      like `["PreContractCall","PostContractCall"]`
+    - priority: 切面的二进制十六进制字符串，会覆盖原有值。**可选**。
+    - aspectsId: 切面地址。**必须**，如：`0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`
+    - aspectsVersion: 指定哪些连接点生效，在列表["VerifyTx","PreTxExecute","PreContractCall","PostContractCall","PostTxExecute"]中可多选填写。
+    如`["PreContractCall","PostContractCall"]`
 
-#### Example
+#### 例子
 
 <!-- @formatter:off -->
 ```javascript
@@ -292,25 +288,23 @@ let receipt= await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
 ```
 <!-- @formatter:on -->
 
-
-:::note
-The sender of the binding transaction must be the owner of the smart contract. Artela system contract will check
-the `isOwner(address)` method of the contract to make sure the sender has the permission to bind the aspect.
+:::注意
+绑定交易的发送者必须是智能合约的所有者。Artela 系统合约将检查合约的 `isOwner(address)` 方法，以确保发送者有权绑定方面。
 :::
 
-### unbind
+### 解除绑定
 
-> Aspects can be detached from smart contracts. Only the owner of the smart contract, whose address must pass the
-> isOwner(address): bool verification, can initiate the unbinding.
+> 方面可以从智能合约中分离。只有智能合约的所有者（其地址必须通过
+> isOwner(address): bool 验证）才能启动解除绑定。
 
-#### Parameters
+#### 参数
 
 - **UnBindAspectOptions**
 
-    - aspectId:  Aspect Address. **require**, like: `0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`
-    - contract:  Contract Address. **require**, like: `0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`
+    - aspectsId：方面地址。**需要**，例如：`0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`
+    - contract：合约地址。**需要**，例如：`0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`
 
-#### Example
+#### 例子
 
 <!-- @formatter:off -->
 ```javascript
@@ -339,23 +333,20 @@ const receipt= await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
 ```
 <!-- @formatter:on -->
 
-:::note
-The sender of the unbind transaction must be the owner of the smart contract. Artela system contract will check
-the `isOwner(address)` method of the contract to make sure the sender has the permission to bind the aspect.
+:::注意
+解除绑定交易的发送者必须是智能合约的所有者。Artela 系统合约将检查合约的 `isOwner(address)` 方法，以确保发送者有权绑定该方面。
 :::
 
-### operation
+### 操作
 
-> The Operation Aspect, akin to a smart contract, exclusively responds to transactions initiated by externally owned
-> accounts (EOAs). This includes transactions triggered by contract interactions. Notably, these Join Points are also
-> activated in the case of cross-contract interactions.
+> 操作方面类似于智能合约，专门响应由外部拥有的账户 (EOA) 发起的交易。这包括由合约交互触发的交易。值得注意的是，这些连接点也会在跨合约交互的情况下激活。
 
-#### Parameters
+#### 参数
 
-- aspectId: aspect.aspectAddress,**require**.
-- encodedArgs:  hex string. **require**, like: `0x5B38Da6a701c568545dCfcB03FcB875f`
+-aspectId：aspect.aspectAddress，**require**。
+-codedArgs：十六进制字符串。**require**，如：`0x5B38Da6a701c568545dCfcB03FcB875f`
 
-#### Example
+#### 示例
 
 <!-- @formatter:off -->
 ```javascript
@@ -389,19 +380,18 @@ await web3.eth.call({
 <!-- @formatter:on -->
 
 :::note
-The first version of Aspect operation calls follows the bytes in bytes out manner, users need to encode and decode the
-call data themselves. We will provide a more user-friendly way to call Aspect in a later version.
+第一版Aspect操作调用遵循bytes in bytes out方式，用户需要自己对调用数据进行编码和解码。我们将在后续版本中提供更人性化的Aspect调用方式。
 :::
 
 ### versionOf
 
-Get Aspect last version
+获取Aspect的最新版本
 
-#### Parameters
+#### 参数
 
-- aspectId: aspect.aspectAddress,**require**.
+- aspectId:aspect.aspect地址,**必要**.
 
-#### Example
+#### 示例
 
 <!-- @formatter:off -->
 ```javascript
@@ -416,13 +406,13 @@ console.log(result);
 
 ### aspectsOf
 
-> Get Aspect list by contract address, return address list sort by priority.
+> 通过合约地址获取Aspect列表，返回地址列表按优先级排序。
 
-#### Parameters
+#### 参数
 
-- contract: account address,**require**.
+- contract: 账户地址，**必要**。
 
-#### Example
+#### 示例
 
 <!-- @formatter:off -->
 ```javascript
@@ -437,15 +427,16 @@ console.log(result);
 
 ### boundAddressesOf
 
-> Get all contracts or EOA account bound to an Aspect
+> 获取与 Aspect 绑定的所有合约或 EOA 帐户
 
-#### Parameters
+#### 参数
 
-- aspectId: aspect.aspectAddress,**require**.
+- aspectId：aspect.aspectAddress，**必要**。
 
-#### Example
+#### 例子
 
 <!-- @formatter:off -->
+
 ```javascript
 var aspectCore = web3.atl.aspectCore();
 // Aspect address

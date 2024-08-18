@@ -2,17 +2,16 @@
 sidebar_position: 2
 ---
 
-# Transaction Verification Aspect
+# 交易验证 Aspect
 
-## Introduction
+## 介绍
 
-Aspect can provide transaction verification service when bound to certain dApp and EoA. If an Aspect has been bound to
-certain dApp and EoA as a transaction verifier, instead of doing the legacy secp256k1 signature verification, Aspect
-will replace it with the customized verification logic implemented in the `verifyTx` method.
+Aspect 在绑定到某些 dApp 和 EoA 时可以提供交易验证服务。如果某个 Aspect 已作为交易验证器绑定到
+某些 dApp 和 EoA，Aspect 将不再执行传统的 secp256k1 签名验证，而是将其替换为在 `verifyTx` 方法中实现的自定义验证逻辑。
 
 ![verify.svg](verify.svg)
 
-## Interface
+## 接口
 
 ```
 interface ITransactionVerifier extends IAspectBase {
@@ -20,20 +19,18 @@ interface ITransactionVerifier extends IAspectBase {
 }
 ```
 
-* **Parameter**
-    * input: TxVerifyInput; The base layer will deliver the TxVerifyInput object to Aspect in this join point.
-        - `input.block.number`: current block number.
-        - `input.tx.from`: caller of the transaction.
-        - `input.tx.to`: to address of the transaction.
-        - `input.tx.hash`: hash of the transaction.
-* **Returns**
-    * Uint8Array; verified account address.
+* **参数**
+    * 输入：TxVerifyInput；基础层将把TxVerifyInput对象传递给此连接点中的Aspect。
+        - `input.block.number`：当前区块编号。
+        - `input.tx.from`：交易调用者。
+        - `input.tx.to`：交易目的地地址。
+        - `input.tx.hash`：交易哈希值。
+* **返回**
+    * Uint8Array；已验证的账户地址。
 
-## Example
+## 示例
 
-To function as a transaction verifier Aspect, an Aspect must implement the `ITransactionVerifier` interface. This
-interface comprises a single method, verifyTx, which is invoked for transactions sent from an EoA without a valid ECDSA
-signature.
+要充当交易验证器方面，方面必须实现 `ITransactionVerifier` 接口。此接口包含一个方法 verifyTx，该方法用于从没有有效 ECDSA 签名的 EoA 发送的交易。
 
 ```typescript
 import {
@@ -68,24 +65,20 @@ entryPoint.setAspect(aspect);
 export {execute, allocate};
 ```
 
-## Programming Guide
+## 编程指南
 
-There are two programming modes that can be used in this method:
+此方法有两种编程模式：
 
-1. By utilizing the 'input' input argument, it provides essential insights into transactions and block processing.
-   see [how to use input](#how-to-use-input).
+1. 通过利用“input”输入参数，它提供了对交易和块处理的重要见解。
+请参阅[如何使用输入](#how-to-use-input)。
 
-2. Using the 'sys' namespace, it provides both hight level API and low-level API access to system data and contextual
-   information generated during blockchain runtime, including details about the environment, blocks, transactions, and
-   utility classes such as crypto and ABI encoding/decoding. see [more details](#how-to-use-apis).
+2. 使用“sys”命名空间，它提供对系统数据和区块链运行时生成的上下文信息的高级 API 和低级 API 访问，包括有关环境、块、交易和实用程序类（如加密和 ABI 编码/解码）的详细信息。请参阅[更多详细信息](#how-to-use-apis)。
 
-## Host APIs
+## 主机 API
 
-For a comprehensive overview of all APIs and their usage
-see [API References](/develop/reference/aspect-lib/components/overview).
+有关所有 API 及其用法的全面概述，请参阅[API 参考](/develop/reference/aspect-lib/components/overview)。
 
-Each join-point has access to different host APIs, and the host APIs available within the current breakpoint can be
-found at the following table.
+每个连接点都可以访问不同的主机 API，当前断点内可用的主机 API 可以在下表中找到。
 
 | System APIs                                                                                                                 | Availability | Description                                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -117,13 +110,12 @@ found at the following table.
 | [sys.hostApi.trace.queryCallTree](/develop/reference/aspect-lib/components/sys-hostapi#2-querycalltree )                    | ❌            | Returns the call tree of EVM execution.                                                                                                                  |
 | [sys.hostApi.trace.queryStateChange](/develop/reference/aspect-lib/components/sys-hostapi#1-querystatechange)               | ❌            | Returns the state change in EVM execution for the specified key.                                                                                         |
 
-## Runtime context
+## 运行时上下文
 
-The Aspect Runtime Context encapsulates data generated through the consensus process. With the acquired Runtime Context
-object, retrieve specific data by specifying the relevant Context Key. Each Context Key is associated with a particular
-type of data or information.
+Aspect 运行时上下文封装了通过共识过程生成的数据。使用获取的运行时上下文
+对象，通过指定相关的上下文键来检索特定数据。每个上下文键都与特定类型的数据或信息相关联。
 
-### Usage
+### 用法
 
 ```javascript
 
@@ -194,22 +186,22 @@ sys.log('block.header.number' + ' ' + numberData.data.toString(10));
 | aspect.id                                    | <a href="/api/docs/classes/proto.BytesData.html" target="_blank">BytesData</a>             | Returns current aspect id.                                                                                                                                                                |
 | aspect.version                               | <a href="/api/docs/classes/proto.UintData.html" target="_blank">UintData</a>               | Returns current aspect version.                                                                                                                                                           |
 
-## To trigger
+## 触发
 
-To trigger the 'VerifyTx' join point, a customized verification transaction without a signature is necessary. The format
-of this transaction is as follows:
+要触发 'VerifyTx' 连接点，需要自定义一个没有签名的验证交易。此交易的格式如下：
 
 ```shell
-magic prefix + checksum(encodedData) + encodedData(validation data + raw calldata)
+magic prefix + checksum(encodedData) +codedData(validation data + raw calldata)
 ```
 
-**Description：**
-> * 0xCAFECAFE serves as a fixed value with a magical prefix.
-> * checksum(encodedData) represents a 4-byte checksum of the encoded data.
-> * encodedData is the result of ABI encoding, combining validation data and raw call data using `ABI.encode(
-    ValidationData, CallData)."
+**说明：**
 
-Example:
+> * 0xCAFECAFE 为带 magic 前缀的固定值。
+> * checksum(encodedData) 表示编码数据的 4 字节校验和。
+> *codedData 是 ABI 编码的结果，使用 `ABI.encode(
+> ValidationData, CallData)" 将验证数据和原始调用数据组合在一起。
+
+示例：
 
 ```shell
 0xCAFECAFE75bac07d00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000
@@ -219,9 +211,9 @@ ed015c52cd1b5b3d9f841c0000000000000000000000000000000000000000000000000000000000
 000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000
 ```
 
-* 0xCAFECAFE is a magical prefix.
-* 75bac07d is 4-byte checksum of the encoded data. calculate the checksum like `keccak256(encodedData).slice(2, 10)`.
-* The remaining bytes represent the result of ABI encoding for ValidationData and CallData. like `abi.encodeParameters(['bytes', 'bytes'], [validationData, contractCallData])`.
+* 0xCAFECAFE 是一个神奇的前缀。
+* 75bac07d 是编码数据的 4 字节校验和。计算校验和，例如 `keccak256(encodedData).slice(2, 10)`。
+* 剩余的字节表示 ValidationData 和 CallData 的 ABI 编码结果。例如 `abi.encodeParameters(['bytes', 'bytes'], [validationData, contractCallData])`。
 
-Here is a case demonstration on how to [create a customized verification transaction](/develop/guides/verify-aspect).
-Through this example, you can gain a clearer understanding of how to utilize Verify Tx.
+这里有一个关于如何 [创建自定义验证交易](/develop/guides/verify-aspect) 的案例演示。
+通过这个例子，你可以更清楚地了解如何使用 Verify Tx。

@@ -1,27 +1,23 @@
----
-id: aspect-programming
-slug: /Aspect-Programming
----
-# Overview
+# 概述
 
-Aspect Programming is a universal programming framework that supports the dynamic creation of native extension modules for blockchain at runtime.
+方面编程是一个通用编程框架，它支持在运行时为区块链的本机扩展模块的动态创建。
 
-Aspect Programming provides a universal stack for all chains, including Layer 2 solutions, to develop native extensions at the base layers, enabling modular dApp building and customized functionality.
+方面编程为包括第2层解决方案在内的所有链条提供了通用堆栈，以在基本层上开发本机扩展，从而启用模块化DAPP构建和自定义功能。
 
-## Native Extension
+## 本地扩展
 
-Native Extension serves as a programmable on-chain module for customized functionality. It extends from the base layer and works synergistically with blockchain smart contracts, allowing dApp to be built in a plug-and-play modular manner.
+本机扩展可作为定制功能的可编程链模块。 它从基础层延伸，并与区块链智能合约协同工作，从而使DAPP以插件的模块化方式构建。
 
-Native Extension is the solution for blockchain customized functionality. 
+本机扩展是区块链自定义功能的解决方案。
 
-**[Learn More](https://docs.artela.network/main/Aspect-Programming/Native-Extension)**
+ **[了解更多](https://docs.artela.network/main/Aspect-Programming/Native-Extension)** 
 
-## Aspect
+## 方面
 
-:::tip
-[Whitepaper Available](https://github.com/artela-network/aspect-whitepaper/blob/main/latex/build/whitepaper.pdf)
+：：：提示
+ [白皮书可用](https://github.com/artela-network/aspect-whitepaper/blob/main/latex/build/whitepaper.pdf) 
 :::
 
-In Artela, we define a new programmable module to work as the native extension of the base layer as Aspect. Aspect integrates customized functionality into the blockchain base layer, working synergistically with smart contracts to enhance dApp modularity and functionality. 
+在Artela中，我们定义了一个新的可编程模块，以作为基础层作为基础层的本机扩展。 方面将自定义功能集成到区块链基层中，并与智能合约协同工作，以增强DAPP模块化和功能。
 
-**[Learn More](https://docs.artela.network/main/Aspect-Programming/Aspect)**
+ **[了解更多](https://docs.artela.network/main/Aspect-Programming/Aspect)** 

@@ -2,38 +2,38 @@
 sidebar_position: 0
 ---
 
-# Intro to Artela
+# Artela简介
 
-Artela is an extensible L1 blockchain with parallel execution and modular VMs. With key innovation of EVM++, Artela enables modular, customizable, and scalable dApps.
+Artela 是一个可扩展的 L1 区块链，具有并行执行和模块化虚拟机的特性。凭借其关键创新 EVM++，Artela 能够支持模块化、可定制和可扩展的去中心化应用程序（dApps）。
 
-At the core of Artela's technological advancements is EVM++ - the next-generation Ethereum Virtual Machine (EVM) execution layer. EVM++ enhances blockchain extensibility by facilitating on-chain native extensions through the innovative EVM + Aspect approach. Additionally, it supports parallel execution, which significantly contributes to blockchain scalability. This dual capability ensures that Artela not only extends functionality but also optimizes performance for diverse blockchain applications.
+Artela 技术进步的核心是 EVM++ —— 这是下一代以太坊虚拟机（EVM）执行层。EVM++ 通过创新的 EVM + 方面方法增强了区块链的可扩展性，支持链上原生扩展。此外，它还支持并行执行，这大大有助于区块链的可扩展性。这种双重能力确保了 Artela 不仅扩展了功能，还优化了不同区块链应用的性能。
 
 ![fifty_p](./Artela-Blockchain/img/artela2.png)
 
-Developing applications on the Artela platform is unrestricted with regard to performance and functionality. Applications benefit from dedicated, high-performance block spaces that deliver consistent and predictable performance. Moreover, developers can tailor the foundational blockchain functionalities via chain abstraction, enabling greater flexibility and customization tailored to specific application needs.
+在 Artela 平台上开发应用程序，在性能和功能方面不受限制。应用程序受益于专用的、高性能的区块空间，提供一致且可预测的性能。此外，开发人员可以通过链抽象定制基础区块链功能，实现更大的灵活性和定制化，以满足特定应用程序的需求。
 
-## What Artela is building:
+## Artela 正在构建的内容包括：
 
-### Artela Blockchain
+### **Artela 区块链**
 
-The Artela Blockchain is an advanced Layer 1 (L1) network that enables developers to implement user-defined native extensions and develop high-performance decentralized applications (dApps). It surpasses EVM-equivalence with superior extensibility and inter-domain interoperability. Featuring an innovative elastic block space design, Artela ensures boundless scalability, allowing applications to scale seamlessly with demand, optimizing performance and development flexibility.
+Artela 区块链是一个先进的 Layer 1 (L1) 网络，使开发人员能够实现用户定义的原生扩展，并开发高性能的去中心化应用程序（dApps）。它超越了 EVM 等价性，具有更高级的可扩展性和跨域互操作性。采用创新的弹性区块空间设计，Artela 确保了无限的可扩展性，允许应用程序根据需求无缝扩展，优化了性能和发展灵活性。
 
-**[Learn More](/main/Artela-Blockchain)**
+**[了解更多](/main/Artela-Blockchain)**
 
 ### EVM++
 
-EVM++ is the next-generation EVM execution layer technology that unlocks blockchain extensibility and scalability.
+EVM++ 是下一代以太坊虚拟机（EVM）执行层技术，它解锁了区块链的可扩展性和可伸缩性。
 
-It aims to extend the capabilities of EVM to meet the demands of the evolving crypto world. As web2 productivity and innovation integrate, and as technologies such as AI, DePIN, and DeFi security rapidly become integral to crypto applications, EVM++ facilitates their seamless incorporation.
+它旨在扩展EVM的能力，以满足不断发展的加密世界的需求。随着Web2的生产力和创新的整合，以及人工智能、DePIN和DeFi安全等技术迅速成为加密应用不可或缺的一部分，EVM++ 促进了它们无缝融合。
 
-**[Learn More](/main/Artela-Blockchain/EVM++)**
+**[了解更多](/main/Artela-Blockchain/EVM++)**
 
-### Aspect Programming
+### Aspect 编程
 
 :::tip
-[Whitepaper Available](https://github.com/artela-network/aspect-whitepaper/blob/main/latex/build/whitepaper.pdf)
+[可用白皮书](https://github.com/artela-network/aspect-whitepaper/blob/main/latex/build/whitepaper.pdf)
 :::
 
-Aspect Programming is a universal programming framework that enables the dynamic creation of native extension modules for blockchains at runtime. It provides a universal stack that all chains can use to build extension modules, enhancing dApp functionality. This framework offers a versatile solution for expanding capabilities across various blockchain platforms.
+面向方面的编程是一种通用的编程框架，它能够在运行时动态创建区块链的原生扩展模块。它提供了一个所有链都可以使用的通用栈，以构建扩展模块，增强去中心化应用的功能。这个框架为扩展各种区块链平台的能力提供了一个多功能的解决方案。
 
-**[Learn More](/main/Aspect-Programming)**
+**[了解更多](/main/Aspect-Programming)**

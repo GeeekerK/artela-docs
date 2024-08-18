@@ -2,13 +2,13 @@
 
 <!-- ##  What is Aspect -->
 
-In Artela, we define a new programmable module to work as Native Extension, called Aspect.
+在Artela中，我们定义了一个新的可编程模块，可作为本机扩展，称为“Aspect”。
 
-The name “Aspect” is inspired by Aspect-oriented Programming. Aspect can tap into the complete API set of the base layer, and inject extended logic into specific join points during a transaction's lifecycle.
+“Aspect”的名称受到面向方面的编程的启发。 方面可以利用基本层的完整API集，并在事务生命周期期间将扩展逻辑注入特定的联接点。
 
-Aspect integrates customized functionality into the blockchain base layer, working synergistically with smart contracts to enhance dApp modularity and functionality.
+方面将自定义功能集成到区块链基层中，并与智能合约协同工作，以增强DAPP模块化和功能。
 
-## Principle of Aspect
+## Aspect原则
 
 <!-- <center>
 <img
@@ -17,20 +17,20 @@ Aspect integrates customized functionality into the blockchain base layer, worki
   width="80%"
 />
 </center> -->
- ![eighty_p](./img/3.png)
+ ![eighty_p](F:\desktop\1\1\img\3.png)
 
-<!-- Developers can utilize Aspect SDK to access base layer API for building Aspects.  -->
+<!-- 开发人员可以利用 Aspect SDK 访问用于构建 Aspects 的基础层 API。  -->
 
-### Building Process
-1. Aspect source code is compiled into WASM bytecode.  
-2. Aspect bytecode is deployed to the Artela network through a deployment transaction. 
-3. After the consensus process, Aspect bytecode will be written to the blockchain's world state and synchronized to all nodes on the network. 
-4. Smart contract owner executes a binding transaction, specifying that it needs to be combined with the Aspect. 
-5. Subsequent transactions calling the smart contract will be processed by the Aspect.
+### 建筑过程
+1. 方面源代码被编译为WASM字节码。
+2. 通过部署事务将方面字节码部署到ARTELA网络。
+3. 在共识过程之后，方面字节码将写入区块链的世界状态，并同步与网络上的所有节点。
+4. Smart Contract所有者执行一项具有约束力的交易，并指定它需要与该方面相结合。
+5. 随后称为智能合约的交易将由该方面处理。
 
-### Join Points
+### 加入点
 
-Aspect needs to specify Join Points, which are the positions where Aspects are executed throughout the transaction processing lifecycle. Join Points includes Block Init, Transaction Verification, Pre Execute, Post Execute, Block Finalize and etc.
+方面需要指定联接点，这是整个事务处理生命周期中执行方面的位置。 JOIN点包括块初始化，交易验证，预执行，后执行，块最终确定等等。
 
 <!-- <center>
 <img
@@ -39,32 +39,32 @@ Aspect needs to specify Join Points, which are the positions where Aspects are 
   width="70%"
 />
 </center> -->
- ![seventy_p](./img/4.png)
+ ![seventy_p](F:\desktop\1\1\img\4.png) 
 
-### Core Characteristics
+### 核心特征
 
-- **Security isolation:** Aspects are executed within a secure sandbox environment that operates independently from the base layer. This isolation ensures that the execution of an Aspect does not compromise the security and availability of the base layer. Furthermore, Aspects are securely isolated from each other, meaning that the execution of one Aspect does not interfere with or affect the execution of other Aspects.
-- **Composability:** Developers can bind smart contracts with Aspects to enable additional functionality. When a transaction calls a smart contract, it passes through the associated Aspects, allowing for additional processing capabilities to be applied. Aspects can be combined with multiple smart contracts seamlessly.
+- **安全隔离：** 在安全的沙盒环境中执行方面，该环境独立于基础层进行操作。 这种隔离确保了一个方面的执行不会损害基础层的安全性和可用性。 此外，方面彼此牢固地隔离，这意味着一个方面的执行不会干扰或影响其他方面的执行。
+- **合成性：** 开发人员可以将智能合约与方面联系起来，以实现其他功能。 当交易调用智能合约时，它会通过相关方面，从而可以应用其他处理功能。 各个方面可以与多个智能合约相结合。
 
 
-## Aspect Capabilities
+## 方面功能
 
-Aspect, as an actual technical implementation of Native Extension, serves as a complement rather than a substitute for smart contracts.
+作为本机扩展的实际技术实施，方面是补充，而不是替代智能合约。
 
-What sets Aspects apart from smart contracts is their ability to fine-tailor the entire lifecycle of a transaction and interact with the base processing context. The following are a few examples of what Aspects can do:
+与智能合约不同的设定方面是他们精细登陆交易的整个生命周期并与基本处理环境互动的能力。 以下是一些方面可以做的几个示例：
 
-- Customize the transaction validation process.
-- Integrate middleware natively.
-- Construct blocks with customized rules.
-- Access the execution context and create reliable asynchronous tasks.
+- 自定义交易验证过程。
+- 本地集成中间件。
+- 使用自定义规则构建块。
+- 访问执行上下文并创建可靠的异步任务。
 
-## Aspect Benefits
+## 方面的好处
 
-Aspects can enhance the functionality of dApps and support the construction of complex protocols in a modular way, simplifying complexity. The advantages are as the following:
+方面可以增强DAPP的功能，并以模块化的方式支持复杂协议的构建，从而简化复杂性。 优点如下：
 
-- **Enhanced functionalities:** Developers can leverage Aspect to implement system-level functionalities such as security checks, off-chain data synchronization, and reliable scheduled tasks. This expands the functionality and potential use cases of dApps by adding features that were traditionally challenging to implement solely within the confines of smart contracts.
-- **Enhanced transaction lifecycle management:** Artela supports extension join points throughout the transaction lifecycle. Before/after transaction execution, Aspects can add customized process logic into transactions, giving Aspects control over the entire lifecycle of the transaction.
-- **Reduced code complexity:** For complex processing logic, developers can choose to host it on a public Aspect. This not only reduces the complexity of decentralized application code but also saves deployment costs by reducing byte code size.
-- **Increased maintainability:** Developers can separate the functional and non-functional features of a dApp with Aspect to achieve logic decoupling, making the maintenance and scaling of the dApp easier.
-- **Improved security:** Developers can implement more accurate and efficient security check strategies with Aspects, such as malicious transaction identification and pre/post-execution state data verification, enhancing the overall security of the dApp.
-- **Customization without sacrificing composability:** Aspects achieve full customization without sacrificing dApp interoperability and composability.
+- **增强功能：** 开发人员可以利用方面来实现系统级功能，例如安全检查，离链数据同步和可靠的计划任务。 通过添加传统上具有挑战性的功能，仅在智能合约的范围内实施，这扩大了DAPP的功能和潜在用例。
+- **增强的交易生命周期管理：** artela支持整个交易生命周期的扩展点。 交易执行之前/之后，方面可以将自定义的过程逻辑添加到交易中，从而对交易的整个生命周期进行控制。
+- **降低代码复杂性：** 对于复杂的处理逻辑，开发人员可以选择在公共方面托管它。 这不仅降低了分散应用程序代码的复杂性，而且通过减少字节代码大小来节省部署成本。
+- **可维护性提高：** 开发人员可以将DAPP的功能和非功能功能与方面分开，以实现逻辑解耦，从而使DAPP的维护和缩放更加容易。
+- **提高安全性：** 开发人员可以通过各个方面实施更准确，更有效的安全检查策略，例如恶意交易识别和执行后状态数据验证，从而增强了DAPP的整体安全性。
+- **定制而无需牺牲合成性：** 方面可以实现完全自定义，而无需牺牲DAPP的互操作性和合并性。

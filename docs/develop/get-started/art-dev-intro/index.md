@@ -1,69 +1,68 @@
 
-# Build on Artela
+# 以Artela为基础
 
 
-### EVM-compatibility
-Artela is a fully EVM-compatible blockchain, allowing you to seamlessly migrate your dApps from other EVM-compatible chains. You can also write smart contracts in Solidity, Vyper, and other EVM-enabled languages without any issues.
+### EVM兼容
+Artela是一个完全兼容EVM的区块链，使您可以无缝地从其他与EVM兼容的链中迁移DAPP。 您还可以在没有任何问题的情况下以坚固，VYPER和其他支持EVM的语言编写智能合约。
 
-Please note that the currently supported Solidity version is `<= 0.8.21`.
+请注意，当前支持的坚固性版本是 `<= 0.8.21`.
 
-For more details, refer to 
-* [EVM Compatibility](/develop/core-concepts/evm-compatibility)
-
-
-### Beyond EVM
-
-Artela blockchain defines a new programmable module to work as native extension, called Aspect. Aspect integrates customized functionality throughout the transaction lifecycle, working synergistically with smart contracts to enhance dApp functionality.
+有关更多详细信息，请参阅
+*[EVM兼容性](/develop/core-concepts/evm-compatibility) 
 
 
-![modular_dapp.png](modular_dapp.png)
+### 超越EVM
 
-You can maintain the core logic within EVM smart contracts, and implement custom features in Aspects using the gas-efficient and computational powerful WASM runtime, all in a plug-and-play manner.
-
-The initial version of Artela Aspect is built with [Assembly Script](https://www.assemblyscript.org/)(a sub set of TypeScript, strictly typed).
-
-<!-- The name “Aspect” is inspired by Aspect-oriented Programming. Aspect can tap into the complete API set of the base layer, and inject extended logic into specific join points during a transaction's lifecycle. -->
+Artela区块链定义了一个新的可编程模块，可作为本机扩展，称为“方面”。 方面整合了整个交易生命周期中的自定义功能，与智能合约协同工作以增强DAPP功能。
 
 
-For more details, refer to:
+ ![modular_dapp.png](modular_dapp.png) 
 
-* [Aspect programming](/develop/core-concepts/aspect-programming)
-* [Aspect](/develop/core-concepts/aspect)
-* [Aspect Runtime](/develop/core-concepts/aspect-runtime) 
-* [Aspect Lifecycle](/develop/core-concepts/lifecycle) 
+您可以在EVM智能合约中维护核心逻辑，并以插件的方式使用汽油效率和计算功能强大的WASM运行时实现自定义功能。
 
+Artela方面的初始版本是由 [汇编脚本](https://www.assemblyscript.org/) （一组打字稿，严格键入）。
 
-
-<!-- 
-## EVM Compatible
-
-Artela is fully EVM compatible. This means that you can use Artela to deploy and run smart contracts written in Solidity, Vyper, and other EVM compatible languages without any issue.
-
- * **Ethereum Compatibility:** Artela can run smart contracts similar to those on the Ethereum blockchain. It uses the same smart contract programming languages (such as Solidity) and supports a transaction and smart contract execution model similar to Ethereum.
-
- * **Cross-Chain Interoperability:**  Artela can achieve interoperability with Ethereum. This allows users to transfer assets or execute smart contracts between different EVM Compatible blockchains without the need for complex conversions or intermediaries.
-
- * **Developer Ecosystem:** Artela often attract Ethereum developers because they can reuse smart contracts and tools they've already created, expanding their applications across different blockchains.
-
- * **Protocol Standards:** Artela typically follow similar protocol standards as Ethereum to ensure compatibility. This includes standards like ERC-20 (token standard), ERC-721 (non-fungible token standard), and other Ethereum Improvement Proposals (EIPs).
-
- * **Interoperability and Ecosystem:** Artela can more easily integrate with Ethereum's DeFi (Decentralized Finance) applications, DApps (Decentralized Applications), and other projects, thereby expanding the entire Ethereum ecosystem.
-
-In summary, EVM Compatible represents compatibility with Ethereum, providing greater interoperability and flexibility to promote the development of decentralized applications and cross-chain operations. This compatibility is crucial for the growth and interconnectivity of the entire blockchain ecosystem. -->
+<！ - 名称为“方面”的灵感来自于方面的编程。 方面可以利用基本层的完整API集，并在事务生命周期期间将扩展逻辑注入特定的联接点。 - >
 
 
-<!-- 
-## Smart Contract with Aspect
+有关更多详细信息，请参阅：
 
-In Artela, we define a new programmable module to work as Native Extension, called Aspect.
+*[方面编程](/develop/core-concepts/aspect-programming) 
+*[方面](/develop/core-concepts/aspect) 
+*[方面运行时间](/develop/core-concepts/aspect-runtime) 
+*[方面生命周期](/develop/core-concepts/lifecycle) 
 
-The name “Aspect” is inspired by Aspect-oriented Programming. Aspect can tap into the complete API set of the base layer, and inject extended logic into specific join points during a transaction's lifecycle.
 
-Aspect integrates customized functionality into the blockchain base layer, working synergistically with smart contracts to enhance dApp modularity and functionality.
 
-For more details, see:
+<！ -
+## EVM兼容
 
-* [Aspect programming](/develop/core-concepts/aspect-programming)
-* [Aspect](/develop/core-concepts/aspect)
-* [Aspect Runtime](/develop/core-concepts/aspect-runtime) -->
+Artela完全兼容EVM。 这意味着您可以使用Artela部署和运行以坚固性，Vyper和其他EVM兼容语言编写的智能合约，而没有任何问题。
 
+ ***以太坊兼容性：** artela可以运行类似于以太坊区块链上的智能合约。 它使用相同的智能合同编程语言（例如坚固性），并支持类似于以太坊的交易和智能合同执行模型。
+
+ ***跨链互操作性：** artela可以与以太坊实现互操作性。 这使用户可以在不同的EVM兼容区块链之间转移资产或执行智能合约，而无需复杂的转换或中介机构。
+
+ ***开发人员生态系统：** artela通常会吸引以太坊开发人员，因为他们可以重复使用已经创建的智能合约和工具，从而将其应用程序扩展到不同的区块链上。
+
+ ***协议标准：** artela通常遵循类似的协议标准，以确保兼容性。 这包括ERC-20（令牌标准），ERC-721（不可杀死的令牌标准）和其他以太坊改进建议（EIPS）等标准。
+
+ ***互操作性和生态系统：** artela可以更轻松地与以太坊的Defi（分散财务）应用，DAPP（分散应用程序）和其他项目集成，从而扩大了整个以太坊生态系统。
+
+总而言之，EVM兼容代表与以太坊的兼容性，提供了更大的互操作性和灵活性，以促进分散应用和跨链操作的发展。 这种兼容性对于整个区块链生态系统的生长和相互连接至关重要。 - >
+
+
+<！ -
+## 智能合同与方面
+
+在Artela中，我们定义了一个新的可编程模块，可作为本机扩展，称为“方面”。
+
+“方面”的名称受到面向方面的编程的启发。 方面可以利用基本层的完整API集，并在事务生命周期期间将扩展逻辑注入特定的联接点。
+
+方面将自定义功能集成到区块链基层中，并与智能合约协同工作，以增强DAPP模块化和功能。
+
+有关更多详细信息，请参见：
+
+*[方面编程](/develop/core-concepts/aspect-programming) 
+*[方面](/develop/core-concepts/aspect) 
+*[方面运行时间](/develop/core-concepts/aspect-runtime) -->
